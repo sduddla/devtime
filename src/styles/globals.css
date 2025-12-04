@@ -1,26 +1,54 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Pretendard Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Colors */
+  --color-primary-color1: #4c79ff;
+  --color-primary-color2: #78b0ff;
+  --color-secondary-indigo: #023e99;
+  --color-secondary-informative: #2563eb;
+  --color-secondary-negative: #dc2626;
+  --color-secondary-notice: #fbbf24;
+  --color-secondary-positive: #22c55e;
+  --color-secondary-fuchsia: #fd28ec;
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f0f2f5;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #ccd0d6;
+  --color-gray-400: #969da8;
+  --color-gray-500: #717887;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #394252;
+  --color-gray-800: #1f2937;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Spacing */
+  /* 컴포넌트 간 스페이싱 */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  /* 영역 간 스페이싱 */
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #171717;
+  font-family: var(--font-pretendard);
+  letter-spacing: 0;
 }
