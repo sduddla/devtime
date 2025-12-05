@@ -1,31 +1,30 @@
 @import 'tailwindcss';
 
 :root {
-  /* Pretendard Font Weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
   /* Colors */
   --color-primary-color1: #4c79ff;
   --color-primary-color2: #78b0ff;
   --color-secondary-indigo: #023e99;
+  --color-secondary-indigo-light: #a3c3ff;
   --color-secondary-informative: #2563eb;
+  --color-secondary-informative-light: #53b2ff;
   --color-secondary-negative: #dc2626;
+  --color-secondary-negative-light: #ff6363;
   --color-secondary-notice: #fbbf24;
+  --color-secondary-notice-light: #ffdb7f;
   --color-secondary-positive: #22c55e;
+  --color-secondary-positive-light: #62ec95;
   --color-secondary-fuchsia: #fd28ec;
-  --color-white: #ffffff;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f0f2f5;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #ccd0d6;
-  --color-gray-400: #969da8;
-  --color-gray-500: #717887;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #394252;
-  --color-gray-800: #1f2937;
+  --color-secondary-fuchsia-light: #ff87f5;
+  --color-custom-gray-50: #f9fafb;
+  --color-custom-gray-100: #f0f2f5;
+  --color-custom-gray-200: #e5e7eb;
+  --color-custom-gray-300: #ccd0d6;
+  --color-custom-gray-400: #969da8;
+  --color-custom-gray-500: #717887;
+  --color-custom-gray-600: #4b5563;
+  --color-custom-gray-700: #394252;
+  --color-custom-gray-800: #1f2937;
 
   /* Spacing */
   /* 컴포넌트 간 스페이싱 */
@@ -44,10 +43,30 @@
   --spacing-56: 56px;
   --spacing-64: 64px;
   --spacing-72: 72px;
+
+  /* Border Radius */
+  --radius-small: 5px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+  --radius-x-large: 18px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 247, 249, 1),
+    rgba(233, 236, 245, 1)
+  );
 }
 
 body {
-  background: #ffffff;
   color: #171717;
   font-family: var(--font-pretendard);
   letter-spacing: 0;
