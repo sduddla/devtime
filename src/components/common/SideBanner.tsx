@@ -10,6 +10,7 @@ export default function SideBanner() {
         width={264}
         height={200}
         className='brightness-0 invert'
+        loading='eager'
       />
       <p className='text-white font-semibold text-[20px] leading-[24px]'>
         개발자를 위한 타이머
