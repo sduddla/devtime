@@ -3,8 +3,10 @@ import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 export async function POST() {
+  const cookieStore = await cookies();
+  let message: string | undefined;
+
   try {
-    const cookieStore = await cookies();
     const accessToken = cookieStore.get('accessToken')?.value;
 
     if (accessToken) {
@@ -18,32 +20,20 @@ export async function POST() {
             },
           }
         );
-
-        cookieStore.delete('accessToken');
-        cookieStore.delete('refreshToken');
-
-        return NextResponse.json({
-          success: true,
-          message: response.data.message,
-        });
+        message = response.data.message;
       } catch {
-        // 백엔드 로그아웃 실패 시 쿠키 삭제
+        // 백엔드 API 실패 시 쿠키 삭제
       }
     }
-
-    cookieStore.delete('accessToken');
-    cookieStore.delete('refreshToken');
-
-    return NextResponse.json({
-      success: true,
-    });
   } catch {
-    const cookieStore = await cookies();
-    cookieStore.delete('accessToken');
-    cookieStore.delete('refreshToken');
-
-    return NextResponse.json({
-      success: true,
-    });
+    // 기타 예외 시 쿠키 삭제
   }
+
+  // 쿠키 삭제
+  cookieStore.delete('accessToken');
+  cookieStore.delete('refreshToken');
+
+  return NextResponse.json(
+    message ? { success: true, message } : { success: true }
+  );
 }
