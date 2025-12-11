@@ -4,6 +4,7 @@ import Logout from '@/assets/icons/logout.svg';
 import User from '@/assets/icons/user.svg';
 import { logout } from '@/libs/api/auth';
 import { useRouter } from 'next/navigation';
+import Modal from '../Modal';
 
 interface HeaderModalProps {
   onClose: () => void;
@@ -23,11 +24,12 @@ export default function HeaderModal({ onClose }: HeaderModalProps) {
     }
   };
   return (
-    <div
+    <Modal
+      isOpen={true}
+      onClose={onClose}
       className='absolute top-[calc(100%+8px)] right-0 w-[130px] h-[104px] bg-white rounded-(--radius-medium) border border-[#CCD0D6]'
-      style={{
-        boxShadow: '0 8px 8px rgba(0, 0, 0, 0.05)',
-      }}
+      closeOnClickOutside={true}
+      showBackdrop={false}
     >
       <button
         className='w-full px-(--spacing-12) py-(--spacing-16) flex items-center gap-(--spacing-12)  cursor-pointer'
@@ -50,6 +52,6 @@ export default function HeaderModal({ onClose }: HeaderModalProps) {
           로그아웃
         </span>
       </button>
-    </div>
+    </Modal>
   );
 }
