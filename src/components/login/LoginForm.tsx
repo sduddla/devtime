@@ -12,6 +12,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { login } from '@/libs/api/auth';
 import LoginModal from './LoginModal';
+import DuplicateLoginModal from './DuplicateLoginModal';
 import VerticalLogo from '@/assets/icons/vertical-logo.svg';
 
 export default function LoginForm() {
@@ -23,6 +24,8 @@ export default function LoginForm() {
   });
   const [errors, setErrors] = useState<LoginFormErrors>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDuplicateLoginModalOpen, setIsDuplicateLoginModalOpen] =
+    useState(false);
 
   useEffect(() => {
     if (!isModalOpen && emailInputRef.current) {
@@ -77,8 +80,15 @@ export default function LoginForm() {
       // console.log('로그인:', response.data);
 
       if (response.data.success) {
-        const { isFirstLogin } = response.data;
+        const { isFirstLogin, isDuplicateLogin } = response.data;
 
+        // 중복 로그인인 경우
+        if (isDuplicateLogin) {
+          setIsDuplicateLoginModalOpen(true);
+          return;
+        }
+
+        // 중복 로그인이 아닌 경우
         if (isFirstLogin) {
           router.replace('/profile/setup');
         } else {
@@ -192,6 +202,13 @@ export default function LoginForm() {
       </Link>
 
       <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <DuplicateLoginModal
+        isOpen={isDuplicateLoginModalOpen}
+        onClose={() => {
+          setIsDuplicateLoginModalOpen(false);
+          router.replace('/');
+        }}
+      />
     </div>
   );
 }
