@@ -1,4 +1,4 @@
-import { VerticalLogoWhite } from '@/assets';
+import VerticalLogoWhite from '@/assets/icons/vertical-logo-white.svg';
 export default function SideBanner() {
   return (
     <div className='w-1/2 h-full bg-(--color-primary-color1) flex flex-col items-center justify-center gap-(--spacing-36)'>
