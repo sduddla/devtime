@@ -6,6 +6,11 @@ export interface SignupFormErrors {
   agreement?: string;
 }
 
+export interface LoginFormErrors {
+  email?: string;
+  password?: string;
+}
+
 // 아이디 유효성 검증
 export function validateEmail(email: string): string | null {
   if (

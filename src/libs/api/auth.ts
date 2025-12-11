@@ -1,4 +1,4 @@
-import axiosInstance from './axiosInstance';
+import axiosInstance, { apiClient } from './axiosInstance';
 
 export const signup = async (
   email: string,
@@ -24,4 +24,19 @@ export const checkNickname = async (nickname: string) => {
   return axiosInstance.get('/api/signup/check-nickname', {
     params: { nickname },
   });
+};
+
+export const login = async (email: string, password: string) => {
+  return apiClient.post('/api/auth/login', {
+    email,
+    password,
+  });
+};
+
+export const logout = async () => {
+  return apiClient.post('/api/auth/logout');
+};
+
+export const refreshToken = async () => {
+  return apiClient.post('/api/auth/refresh');
 };
