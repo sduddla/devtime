@@ -14,7 +14,7 @@ interface TimerProps {
 export default function Timer({ label }: TimerProps) {
   return (
     <div
-      className={`${digitalNumbers.variable} w-[264px] h-[298px] rounded-(--radius-large) border border-(--color-primary-color1)] text-(--color-primary-color1) flex items-center justify-center text-[154px] leading-[200px] pt-(--spacing-8) pr-(--spacing-8) pb-(--spacing-36) pl-(--spacing-8)`}
+      className={`${digitalNumbers.variable} w-[264px] h-[298px] rounded-(--radius-large) border border-(--color-primary-color1) text-(--color-primary-color1) flex items-center justify-center text-[154px] leading-[200px] pt-(--spacing-8) pr-(--spacing-8) pb-(--spacing-36) pl-(--spacing-8)`}
       style={{
         fontFamily: 'var(--font-digital-numbers)',
         background:
