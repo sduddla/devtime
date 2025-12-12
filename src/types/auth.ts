@@ -12,9 +12,19 @@ export interface CheckNicknameResponse {
 
 export interface SignupResponse {
   success: boolean;
-  message?: string;
+  message: string;
   error?: {
     message: string;
     statusCode: number;
+  };
+}
+
+export interface LoginResponse {
+  success: boolean;
+  message: string;
+  isFirstLogin: boolean;
+  isDuplicateLogin: boolean;
+  error?: {
+    message: string;
   };
 }
